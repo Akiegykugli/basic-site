@@ -1,18 +1,59 @@
+/* =========================================================
+   🎛 GLOBAL CONTROL PANEL (EDIT THESE)
+   ========================================================= */
+
 :root {
   --bg: #cbd6d4;
   --text: #070808;
   --link: #0066cc;
-  --glow: 0;
-  --noise: 0;
+
+  /* CRT MASTER SWITCHES */
+  --noise-opacity: 0;        /* scanline visibility */
+  --scanline-size: 1px;      /* thickness of lines */
+
+  --text-glow-bright: 0;
+  --text-glow-soft: 0;
+  --text-glow-size-small: 0px;
+  --text-glow-size-large: 0px;
+
+  --icon-glow-bright: 0;
+  --icon-glow-soft: 0;
+  --icon-glow-size-small: 0px;
+  --icon-glow-size-large: 0px;
+
+  --curvature-brightness: 0;
+  --curvature-spread: 70%;
 }
 
 [data-theme="dark"] {
   --bg: #070808;
   --text: #cbd6d4;
   --link: #7aa2f7;
-  --glow: 0.06;
-  --noise: 0.5;
+
+  /* Scanlines */
+  --noise-opacity: 0.5;
+  --scanline-size: clamp(1px, 0.15vh, 3px);
+
+  /* Text glow */
+  --text-glow-bright: 0.18;
+  --text-glow-soft: 0.08;
+  --text-glow-size-small: clamp(4px, 0.8vw, 12px);
+  --text-glow-size-large: clamp(12px, 2vw, 40px);
+
+  /* Icon glow */
+  --icon-glow-bright: 0.25;
+  --icon-glow-soft: 0.12;
+  --icon-glow-size-small: clamp(6px, 1vw, 16px);
+  --icon-glow-size-large: clamp(16px, 2vw, 40px);
+
+  /* Curvature */
+  --curvature-brightness: 0.06;
+  --curvature-spread: 75%;
 }
+
+/* =========================================================
+   Base Layout
+   ========================================================= */
 
 * {
   box-sizing: border-box;
@@ -62,7 +103,9 @@ footer {
   opacity: 0.95;
 }
 
-/* Icons */
+/* =========================================================
+   Icons
+   ========================================================= */
 
 .material-symbols-outlined {
   font-family: 'Material Symbols Outlined';
@@ -83,42 +126,75 @@ footer {
   margin: 10px 0;
 }
 
-/* CRT Glow */
+/* =========================================================
+   CRT TEXT GLOW
+   ========================================================= */
 
 [data-theme="dark"] h1,
 [data-theme="dark"] p,
 [data-theme="dark"] footer,
 [data-theme="dark"] a {
   text-shadow:
-    0 0 8px rgba(255,255,255,var(--glow)),
-    0 0 24px rgba(255,255,255,var(--glow));
+    0 0 var(--text-glow-size-small)
+      rgba(255,255,255,var(--text-glow-bright)),
+    0 0 var(--text-glow-size-large)
+      rgba(255,255,255,var(--text-glow-soft));
 }
+
+/* =========================================================
+   CRT ICON GLOW
+   ========================================================= */
 
 [data-theme="dark"] .material-symbols-outlined {
   filter:
-    drop-shadow(0 0 10px rgba(255,255,255,var(--glow)))
-    drop-shadow(0 0 30px rgba(255,255,255,var(--glow)));
+    drop-shadow(0 0 var(--icon-glow-size-small)
+      rgba(255,255,255,var(--icon-glow-bright)))
+    drop-shadow(0 0 var(--icon-glow-size-large)
+      rgba(255,255,255,var(--icon-glow-soft)));
 }
 
-/* CRT Noise Overlay */
+/* =========================================================
+   CRT SCANLINES
+   ========================================================= */
 
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   pointer-events: none;
+
   background-image:
     repeating-linear-gradient(
       0deg,
-      rgba(255,255,255,var(--noise)),
-      rgba(255,255,255,var(--noise)) 1px,
-      transparent 1px,
-      transparent 2px
+      rgba(255,255,255,var(--noise-opacity)) 0,
+      rgba(255,255,255,var(--noise-opacity)) var(--scanline-size),
+      transparent var(--scanline-size),
+      transparent calc(var(--scanline-size) * 2)
     );
+
   mix-blend-mode: overlay;
 }
 
-/* Theme Button */
+/* =========================================================
+   CRT CURVATURE / SCREEN GLOW
+   ========================================================= */
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255,255,255,var(--curvature-brightness)) 0%,
+    transparent var(--curvature-spread)
+  );
+}
+
+/* =========================================================
+   Theme Toggle Button
+   ========================================================= */
 
 #theme-toggle {
   position: fixed;
