@@ -31,23 +31,23 @@
   --link: #7aa2f7;
 
   /* Scanlines */
-  --noise-opacity: 0.5;
+  --noise-opacity: 0.4;
   --scanline-size: clamp(1px, 0.15vh, 3px);
 
   /* Text glow */
-  --text-glow-bright: 0.18;
-  --text-glow-soft: 0.08;
+  --text-glow-bright: 0.3;
+  --text-glow-soft: 0.1;
   --text-glow-size-small: clamp(4px, 0.8vw, 12px);
   --text-glow-size-large: clamp(12px, 2vw, 40px);
 
   /* Icon glow */
-  --icon-glow-bright: 0.25;
-  --icon-glow-soft: 0.12;
+  --icon-glow-bright: 0.4;
+  --icon-glow-soft: 0.15;
   --icon-glow-size-small: clamp(6px, 1vw, 16px);
   --icon-glow-size-large: clamp(16px, 2vw, 40px);
 
   /* Curvature */
-  --curvature-brightness: 0.06;
+  --curvature-brightness: 0.04;
   --curvature-spread: 75%;
 }
 
