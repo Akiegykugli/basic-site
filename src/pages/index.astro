@@ -1,185 +1,66 @@
+---
+import "../styles/global.css";
+---
+
 <!doctype html>
 <html lang="hu">
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light dark" />
+
   <title>NA MIVAN HULIGÁNOK</title>
 
-  <meta name="color-scheme" content="light dark">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
-
-  <style>
-    :root {
-      --bg: #cbd6d4;
-      --text: #070808;
-      --link: #0066cc;
-      --glow-strength: 0;
-      --noise-opacity: 0;
-    }
-
-    [data-theme="dark"] {
-      --bg: #070808;
-      --text: #cbd6d4;
-      --link: #7aa2f7;
-      --glow-strength: 0.05;
-      --noise-opacity: 0.5;
-      --text-bloom: 0.75;
-      --icon-bloom: 0.75;
-    }
-
-    html, body {
-      margin: 0;
-      padding: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Major Mono Display', monospace;
-      text-align: center;
-      height: 100%;
-      overflow: hidden;
-    }
-
-    body {
-      min-height: 100vh;
-      padding-top: 10vh;
-      position: relative;
-      overflow-x: hidden;
-    }
-
-    a { color: var(--link); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
-    .material-symbols-outlined {
-      font-family: 'Material Symbols Outlined';
-      color: var(--text);
-        font-variation-settings:
-            "FILL" 0,
-            "wght" 400,
-            "GRAD" 0,
-            "opsz" 48;
-
-        line-height: 1;
-        display: inline-block;
-        vertical-align: middle;
-    }
-
-    body::after {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      box-shadow:
-        0 0 40px rgba(255,255,255,var(--glow-strength)),
-        inset 0 0 60px rgba(255,255,255,var(--glow-strength));
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      background-image:
-        repeating-linear-gradient(
-          0deg,
-          rgba(255,255,255,var(--noise-opacity)),
-          rgba(255,255,255,var(--noise-opacity)) 1px,
-          transparent 1px,
-          transparent 2px
-        );
-      mix-blend-mode: overlay;
-    }
-
-    #theme-toggle {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      opacity: 0.6;
-    }
-
-    #theme-toggle:hover { opacity: 1; }
-    #theme-toggle span { font-size: 36px; }
-    
-    [data-theme="dark"] h1 {
-      text-shadow:
-        0 0 10px color-mix(in srgb, currentColor 80%, transparent),
-        0 0 30px color-mix(in srgb, currentColor 60%, transparent),
-        0 0 60px color-mix(in srgb, currentColor 35%, transparent);
-    }
-
-    [data-theme="dark"] p,
-    [data-theme="dark"] footer,
-    [data-theme="dark"] a {
-      text-shadow:
-        0 0 6px  color-mix(in srgb, currentColor 70%, transparent),
-        0 0 14px color-mix(in srgb, currentColor 45%, transparent),
-        0 0 24px color-mix(in srgb, currentColor 25%, transparent);
-    }
-
-    [data-theme="dark"] .material-symbols-outlined {
-      filter:
-        drop-shadow(0 0 6px  color-mix(in srgb, currentColor 80%, transparent))
-        drop-shadow(0 0 18px color-mix(in srgb, currentColor 55%, transparent))
-        drop-shadow(0 0 36px color-mix(in srgb, currentColor 30%, transparent));
-    }
-
-    [data-theme="dark"] span[style*="font-size:120px"] {
-      filter:
-        drop-shadow(0 0 12px color-mix(in srgb, currentColor 85%, transparent))
-        drop-shadow(0 0 40px color-mix(in srgb, currentColor 65%, transparent))
-        drop-shadow(0 0 80px color-mix(in srgb, currentColor 40%, transparent));
-    }
-
-  </style>
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 </head>
 
 <body>
-    <span class="material-symbols-outlined"
-        style="font-size:120px; opacity:0.9; margin-bottom:10vh;">
-        frame_exclamation
+
+  <main class="container">
+
+    <span class="material-symbols-outlined big-icon">
+      frame_exclamation
     </span>
 
     <h1>ezt elkúrtad barátom, mehetsz haza</h1>
 
     <p>meg a nagy túróst hogy ez az az oldal ahová akartál menni</p>
 
-    <span class="material-symbols-outlined" style="font-size:48px; opacity:0.85;">
-        sentiment_sad
+    <span class="material-symbols-outlined mid-icon">
+      sentiment_sad
     </span>
 
-  <p>de ha már itt vagy akkor lentebb van elérhetőség amit úgysem fogok nézni</p>
+    <p>de ha már itt vagy akkor lentebb van elérhetőség amit úgysem fogok nézni</p>
 
-  <hr style="width:200px; margin:40px auto;">
+    <hr />
 
-  <footer style="font-size:0.9em; opacity:0.975;">
-    <p>elérhetőség</p>
+    <footer>
+      <p>elérhetőség</p>
 
-    <p>
-      <a href="https://github.com/Akiegykugli" target="_blank" rel="noopener">
-        github.com
-      </a>
-    </p>
-    <p>
-        <span class="material-symbols-outlined">
-            rainy_heavy
-        </span>
-        <span class="material-symbols-outlined">
-            rainy_snow
-        </span>
-        <span class="material-symbols-outlined">
-            rainy_heavy
-        </span>
-    </p>
-    <p>
-      <a href="https://discord.com/users/718409953466908682" target="_blank" rel="noopener">
-        discord
-      </a>
-    </p>
-  </footer>
+      <p>
+        <a href="https://github.com/Akiegykugli" target="_blank" rel="noopener">
+          github.com
+        </a>
+      </p>
+
+      <p class="rain">
+        <span class="material-symbols-outlined">rainy_heavy</span>
+        <span class="material-symbols-outlined">rainy_snow</span>
+        <span class="material-symbols-outlined">rainy_heavy</span>
+      </p>
+
+      <p>
+        <a href="https://discord.com/users/718409953466908682" target="_blank" rel="noopener">
+          discord
+        </a>
+      </p>
+    </footer>
+
+  </main>
 
   <button id="theme-toggle" aria-label="toggle theme">
     <span class="material-symbols-outlined">routine</span>
@@ -194,9 +75,8 @@
     }
 
     function applyTheme(t) {
-      t === "dark"
-        ? root.setAttribute("data-theme", "dark")
-        : root.removeAttribute("data-theme");
+      if (t === "dark") root.setAttribute("data-theme", "dark");
+      else root.removeAttribute("data-theme");
     }
 
     if (saved) applyTheme(saved);
@@ -209,5 +89,6 @@
       applyTheme(next);
     };
   </script>
+
 </body>
 </html>
