@@ -67,6 +67,7 @@ html, body {
   font-family: 'Major Mono Display', monospace;
   text-align: center;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 .container {
